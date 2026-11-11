@@ -110,7 +110,7 @@
       <tr><td>PathwayExpander (Base)</td><td><a href="https://basescan.org/address/0x29225D1177d0ECB3C0309417197D493b827A75b0" target="_blank" rel="noopener"><code>0x29225D1177d0ECB3C0309417197D493b827A75b0</code></a></td><td><a href="https://basescan.org/address/0xd14C3038141C849612825760D9832515323462B5" target="_blank" rel="noopener"><code>0xd14C3038141C849612825760D9832515323462B5</code></a></td></tr>
       <tr><td>PathwayExpander (Arbitrum)</td><td><a href="https://arbiscan.io/address/0xc41aFf35C236f24404283ee909A2d0641E44fa42" target="_blank" rel="noopener"><code>0xc41aFf35C236f24404283ee909A2d0641E44fa42</code></a></td><td><a href="https://arbiscan.io/address/0xdAD5bac641ABe10A11188A1AED7fAd282188A76a" target="_blank" rel="noopener"><code>0xdAD5bac641ABe10A11188A1AED7fAd282188A76a</code></a></td></tr>
     </table>
-    <p><span class="en">The CAW token itself is pre-existing and shared by both deployments: <code>0xf3b9569F82B18aEf890De263B84189bd33EBe452</code>. The full 33-contract list for each deployment is in the deployment records linked in section 8.</span><span class="jp">CAW トークン自体は既存のもので、両デプロイ共通です：<code>0xf3b9569F82B18aEf890De263B84189bd33EBe452</code>。各デプロイの全33コントラクトの一覧は、第8節のデプロイ記録にあります。</span></p>
+    <p><span class="en">The CAW token itself is pre-existing and shared by both deployments: <code>0xf3b9569F82B18aEf890De263B84189bd33EBe452</code>. The full list of all 33 deployed contracts for each deployment is in the appendix at the end of this report.</span><span class="jp">CAW トークン自体は既存のもので、両デプロイ共通です：<code>0xf3b9569F82B18aEf890De263B84189bd33EBe452</code>。各デプロイの全33コントラクトの一覧は、本レポート末尾の付録にあります。</span></p>
   </section>
 
   <section>
@@ -147,7 +147,7 @@
     <h2><span class="en">5. Money: fees, refunds, and what the operator holds</span><span class="jp">5. お金：手数料、返却、運用側が持っているもの</span></h2>
     <ul class="checks">
       <li><span class="en">The network fee recipient was the deployer address — that is the upstream deploy script's default wiring, not a setting chosen for this deployment. No fee income from any third party has ever occurred (no third party has used either deployment).</span><span class="jp">ネットワーク手数料の受取先はデプロイヤーのアドレスでした。これは上流のデプロイスクリプトの初期設定であり、このデプロイのために選んだ設定ではありません。第三者の利用自体が無いため、第三者からの手数料収入は一度も発生していません（両デプロイとも）。</span></li>
-      <li><span class="en">About <b>0.0015 ETH</b> of fees accrued inside the current deployment's CawProfile before the lock (from the operator's own test mints). Releasing it was only ever possible for the deployer; after the key destruction it is <b>frozen forever</b>. It was never withdrawn.</span><span class="jp">現行デプロイの CawProfile 内には、ロック前に約 <b>0.0015 ETH</b> の手数料が積まれています（運用側自身のテスト発行によるもの）。引き出し処理ができたのはデプロイヤーだけでした。鍵の破棄後は<b>永久に凍結</b>されています。引き出されたことはありません。</span></li>
+      <li><span class="en">Before the lock, fees from the operator's own test mints accrued inside the current deployment's CawProfile: <b>0.0015 ETH</b> credited to the fee recipient and a matching <b>0.0015 ETH</b> to the BuyAndBurn pool — <b>0.003 ETH in total</b>. The two halves are released together, only through a withdrawal by the fee recipient, which was only ever possible for the deployer; after the key destruction the full amount is <b>frozen forever</b>. It was never withdrawn. The first deployment likewise holds 0.0005 ETH on each side (0.001 ETH in total), also frozen.</span><span class="jp">ロック前、運用側自身のテスト発行による手数料が、現行デプロイの CawProfile 内に積まれています：受取先に <b>0.0015 ETH</b>、BuyAndBurn プールにも同額の <b>0.0015 ETH</b>、<b>合計 0.003 ETH</b> です。両半分は受取先の引き出し時にまとめて解放される仕組みで、その引き出しができたのはデプロイヤーだけでした。鍵の破棄後、全額が<b>永久に凍結</b>されています。引き出されたことはありません。旧デプロイにも両側 0.0005 ETH ずつ（合計 0.001 ETH）があり、同様に凍結されています。</span></li>
       <li><span class="en">All unspent deployment funding was returned to the initiator's wallet: the unused ETH on all three chains, and about 348.9 million of the roughly 354.9 million CAW bought for the mints (the remainder was burned as name costs, or sits as the name deposits in section 6). The only assets the initiator holds from this project are those names — acquired with his own funds and disclosed there.</span><span class="jp">デプロイ資金の未使用分は、すべて発起人のウォレットへ返却しました（3チェーン分の未使用 ETH と、発行用に購入した約3億5,490万 CAW のうち約3億4,888万 CAW。残りは名前のバーン費用として消却されたか、第6節の預け入れとして残っています）。このプロジェクトで発起人が持っている資産は、それらの名前だけです（自分の資金で取得し、そこで開示しています）。</span></li>
       <li><span class="en">The CawProfile contract implements <b>no ERC-2981 royalty</b> (checked on-chain): no marketplace trading fee is set to flow to anyone, per the manifesto's appendix.</span><span class="jp">CawProfile には<b>ロイヤリティ機能（ERC-2981）が実装されていません</b>（チェーン上で確認済み）。マニフェストの付録どおり、マーケットプレイスの取引手数料が誰かに入る設定にはなっていません。</span></li>
     </ul>
@@ -173,6 +173,7 @@
       <div class="item"><span class="when"><span class="en">Nov 11, 2026 — evening</span><span class="jp">2026年11月11日 夜</span></span><br /><span class="en"><b>Fee unit error.</b> The Babylon authentication fee was described in places as "0.00025 CAW". The fees are charged in ETH from the transaction value (verified in the CawProfile source): the correct figure is <b>0.00025 ETH</b>. A second reviewer (RAZ13L) had the unit right; our earlier statements were wrong and have been corrected on every surface.</span><span class="jp"><b>手数料の単位の誤り。</b>Babylon の認証手数料を「0.00025 CAW」と書いていた箇所がありました。手数料はトランザクションの送金額から ETH で徴収されます（CawProfile のソースで確認）。正しくは <b>0.00025 ETH</b> です。別の検証者（RAZ13L 氏）の単位が正しく、私たちの当初の記述が誤りでした。全ての公開面で訂正済みです。</span></div>
       <div class="item"><span class="when"><span class="en">Nov 11, 2026 — night</span><span class="jp">2026年11月11日 深夜</span></span><br /><span class="en"><b>The Babylon exception now covers both deployments explicitly.</b> The fee exception was first written for the current deployment only; the first deployment carries the same locked exception, and the disclosure now says so in both places it matters (pointed out by RAZ13L).</span><span class="jp"><b>Babylon の例外が両デプロイに当てはまることを明記しました。</b>当初、手数料の例外注記は現行デプロイについてだけ書かれていました。旧デプロイにも同じロック済みの例外があり、公表の両該当箇所に明記しました（RAZ13L 氏の指摘による）。</span></div>
       <div class="item"><span class="when"><span class="en">Nov 11, 2026 — night</span><span class="jp">2026年11月11日 深夜</span></span><br /><span class="en"><b>This report.</b> At the reviewers' request, the two deployments are now labeled side by side (section 2), and the distinction between contract-enforced facts and the key-destruction declaration is applied uniformly across the intro site, the dashboard (Pages and Space versions), and this report.</span><span class="jp"><b>このレポートの発行。</b>検証者各位の求めに応じ、2つのデプロイをラベル付きで対照できるようにし（第2節）、「コントラクトで強制される事実」と「鍵破棄の申告」の区別を、紹介サイト、ダッシュボード（Pages 版と Space 版）、このレポートの全てで統一しました。</span></div>
+    <div class="item"><span class="when"><span class="en">Nov 11, 2026 — night</span><span class="jp">2026年11月11日 深夜</span></span><br /><span class="en"><b>Accrued-fees figure corrected, and an appendix added.</b> The first edition of section 5 counted only the half of the accrued fees credited to the fee recipient (0.0015 ETH). Read directly on-chain, the BuyAndBurn pool holds a matching 0.0015 ETH, so the amount frozen in the current deployment is 0.003 ETH in total; the first deployment holds 0.0005 ETH on each side. Section 5 now states the full amounts, and the same figure has been corrected on the intro site and the dashboard. Section 2 also pointed to deployment records that were not actually linked — an appendix listing all 33 contracts of both deployments has been added at the end of this report.</span><span class="jp"><b>積まれた手数料の金額を訂正し、付録を追加しました。</b>初版の第5節は、受取先に積まれた半分（0.0015 ETH）だけを数えていました。チェーン上で直接読むと、BuyAndBurn プール側にも同額の 0.0015 ETH があり、現行デプロイで凍結されている総額は 0.003 ETH です。旧デプロイにも両側 0.0005 ETH ずつあります。第5節は総額の記載に直し、紹介サイトとダッシュボードの同じ数字も訂正しました。また、第2節が指していたデプロイ記録へのリンクが実際には存在しなかったため、両デプロイの全33コントラクトの一覧を本レポート末尾の付録として追加しました。</span></div>
     </div>
   </section>
 
@@ -187,9 +188,52 @@
     </ul>
   </section>
 
+
+  <section>
+    <h2><span class="en">Appendix — all contracts, both deployments</span><span class="jp">付録 — 両デプロイの全コントラクト</span></h2>
+    <p><span class="en">Every contract deployed for each deployment (33 per deployment, from the deployment records), plus the pre-existing CAW token. All 33 are verified on Sourcify with an exact bytecode match. Suffixes in the deployment records: no suffix / _L1 = Ethereum, _L2 = Base, _L2b = Arbitrum.</span><span class="jp">各デプロイでデプロイした全コントラクト（各33件、デプロイ記録より）と、既存の CAW トークンです。全33件とも Sourcify でバイトコード完全一致の検証済みです。デプロイ記録の接尾辞：無印／_L1 = Ethereum、_L2 = Base、_L2b = Arbitrum。</span></p>
+    <table class="deptable">
+      <tr><th><span class="en">Contract</span><span class="jp">コントラクト</span></th><th><span class="en">Chain</span><span class="jp">チェーン</span></th><th><span class="en">First deployment</span><span class="jp">旧デプロイ</span></th><th><span class="en">Current deployment</span><span class="jp">現行デプロイ</span></th></tr>
+      <tr><td>CawActionsERC1271_L1</td><td>Ethereum</td><td><code>0xa9767fAAcF6f4CE720a910590252ee31e20EE869</code></td><td><code>0x9c0331CDC003453730B19f52a507373EF0a9e513</code></td></tr>
+      <tr><td>CawActions_L1</td><td>Ethereum</td><td><code>0x32476808c5c613860F78e0B17c1101964482e1dF</code></td><td><code>0x4Df413760cd196D28818478278f7A0E8b6Ee6e39</code></td></tr>
+      <tr><td>CawBuyAndBurn</td><td>Ethereum</td><td><code>0xE919cA86a02016251BF8139B5abb40BDa50Ab195</code></td><td><code>0xb6F3a337F318AFE16C6e952915796559e180ECAc</code></td></tr>
+      <tr><td>CawCapOracle_L1</td><td>Ethereum</td><td><code>0xa5dA10B12B866513ec593F8fee4C4D90e592a62F</code></td><td><code>0xd59f55156Da7036DF3163533472107d6498c318e</code></td></tr>
+      <tr><td>CawFontDataA</td><td>Ethereum</td><td><code>0x595a4413797Eba8dCA76F37A8f6635B22Bf378E5</code></td><td><code>0xF105C02f1Cf8Ea2C607558314b9BD35B5F187B04</code></td></tr>
+      <tr><td>CawFontDataB</td><td>Ethereum</td><td><code>0xb1589314B79BBE6e9c47d9641149795Db2adb939</code></td><td><code>0x8969ceD02E7B38b20256bC6341174d1ea04F4AEe</code></td></tr>
+      <tr><td>CawNetworkManager</td><td>Ethereum</td><td><code>0x09Ee733Eb6BA19dEBC0E576AA18333A9A5A6D546</code></td><td><code>0x426C22504fd710fbAEAcd0c15e7aad80210a1E12</code></td></tr>
+      <tr><td>CawProfile</td><td>Ethereum</td><td><code>0x82455d1a90DD177F02a9b9d0f115Ce30e224DCE3</code></td><td><code>0xa3700808e1c62E989fbf5CE15312d79d1475bDb4</code></td></tr>
+      <tr><td>CawProfileLedger_L1</td><td>Ethereum</td><td><code>0x387920202EB0468615B419a620d0acf189de6606</code></td><td><code>0x3f6E2cc5a2E7CB6984f94c826717B71FB001dD3C</code></td></tr>
+      <tr><td>CawProfileLens</td><td>Ethereum</td><td><code>0x42a1BB0120deAaeCc165cc800dB4d6Ee67B231dB</code></td><td><code>0x149DD52f6e2331bDfe400f08D489582C72712fcE</code></td></tr>
+      <tr><td>CawProfileMarketplace</td><td>Ethereum</td><td><code>0x8E945f8948C6D7D1259aCA158Bcec8C104bdb673</code></td><td><code>0xD76B5Aa960da00B1df69eD96a4F3D6D311Ef4bd9</code></td></tr>
+      <tr><td>CawProfileMinter</td><td>Ethereum</td><td><code>0xA19EC9Dc81fff2b8f254230EB8603ee56D0fF568</code></td><td><code>0xf219DA7aF9249322D4E982dc49FcE6251bCE0d22</code></td></tr>
+      <tr><td>CawProfileQuoter</td><td>Ethereum</td><td><code>0x01fDbc549Caaa9585c931f114A6cC323944f0BE4</code></td><td><code>0x4baBf4136707d6f4C096ea447Ec3285Cc2AF7235</code></td></tr>
+      <tr><td>CawProfileURI</td><td>Ethereum</td><td><code>0xE03a95A5f1681c80D9308A4E571cE9Ee8977F326</code></td><td><code>0xCF7e846D31193427458282eB4E3D3D348B79F1DF</code></td></tr>
+      <tr><td>MintableCaw (CAW token — pre-existing, shared)</td><td>Ethereum</td><td><code>0xf3b9569F82B18aEf890De263B84189bd33EBe452</code></td><td><code>0xf3b9569F82B18aEf890De263B84189bd33EBe452</code></td></tr>
+      <tr><td>PathwayExpander_L1</td><td>Ethereum</td><td><code>0x29225D1177d0ECB3C0309417197D493b827A75b0</code></td><td><code>0xCdbDd8533e8E287F378687Aa70208FfCfF997D39</code></td></tr>
+      <tr><td>SessionMessageParser_L1</td><td>Ethereum</td><td><code>0x27dBE57Df5dCA071AbA7e7Dddd1a988a8C8Cd45f</code></td><td><code>0xf986feF3b33c01ebA2c2D2507D2Fe7dB7882cA14</code></td></tr>
+      <tr><td>SmartEOA</td><td>Ethereum</td><td><code>0x1a32DfE9e682283D0B00C6013691D1f220C25AEd</code></td><td><code>0xC91a8eA79DCee6742AA125C11f3e6d37979BC992</code></td></tr>
+      <tr><td>CawActionsArchive_L2</td><td>Base</td><td><code>0x09Ee733Eb6BA19dEBC0E576AA18333A9A5A6D546</code></td><td><code>0x9ac02C514A016c7E6A92cf69a44a4d793b6b9cfE</code></td></tr>
+      <tr><td>CawActionsERC1271_L2</td><td>Base</td><td><code>0xE919cA86a02016251BF8139B5abb40BDa50Ab195</code></td><td><code>0x1aF9fc193d23528C9F8C17030Bf3A61C5473d52c</code></td></tr>
+      <tr><td>CawActions_L2</td><td>Base</td><td><code>0xE03a95A5f1681c80D9308A4E571cE9Ee8977F326</code></td><td><code>0xf4dFCf0EF472E8aaD3783479051f61EC574C6A8E</code></td></tr>
+      <tr><td>CawCapOracle_L2</td><td>Base</td><td><code>0xb1589314B79BBE6e9c47d9641149795Db2adb939</code></td><td><code>0x31e8F103F717C48c5FA6c9b9134a2AD1aEe8b1aE</code></td></tr>
+      <tr><td>CawChallengeRelay_L2</td><td>Base</td><td><code>0x27dBE57Df5dCA071AbA7e7Dddd1a988a8C8Cd45f</code></td><td><code>0x747B7Bc621f3705e4Cd84eF0f94F2C1fF335F611</code></td></tr>
+      <tr><td>CawProfileLedger_L2</td><td>Base</td><td><code>0x595a4413797Eba8dCA76F37A8f6635B22Bf378E5</code></td><td><code>0x206c99Ee5CFF8b5D761926ff224D867E1fBC7aaa</code></td></tr>
+      <tr><td>PathwayExpander_L2</td><td>Base</td><td><code>0x29225D1177d0ECB3C0309417197D493b827A75b0</code></td><td><code>0xd14C3038141C849612825760D9832515323462B5</code></td></tr>
+      <tr><td>SessionMessageParser_L2</td><td>Base</td><td><code>0xc41aFf35C236f24404283ee909A2d0641E44fa42</code></td><td><code>0xdAD5bac641ABe10A11188A1AED7fAd282188A76a</code></td></tr>
+      <tr><td>CawActionsArchive_L2b</td><td>Arbitrum</td><td><code>0xE919cA86a02016251BF8139B5abb40BDa50Ab195</code></td><td><code>0x1aF9fc193d23528C9F8C17030Bf3A61C5473d52c</code></td></tr>
+      <tr><td>CawActionsERC1271_L2b</td><td>Arbitrum</td><td><code>0xE03a95A5f1681c80D9308A4E571cE9Ee8977F326</code></td><td><code>0xf4dFCf0EF472E8aaD3783479051f61EC574C6A8E</code></td></tr>
+      <tr><td>CawActions_L2b</td><td>Arbitrum</td><td><code>0xb1589314B79BBE6e9c47d9641149795Db2adb939</code></td><td><code>0x31e8F103F717C48c5FA6c9b9134a2AD1aEe8b1aE</code></td></tr>
+      <tr><td>CawCapOracle_L2b</td><td>Arbitrum</td><td><code>0x595a4413797Eba8dCA76F37A8f6635B22Bf378E5</code></td><td><code>0x206c99Ee5CFF8b5D761926ff224D867E1fBC7aaa</code></td></tr>
+      <tr><td>CawChallengeRelay_L2b</td><td>Arbitrum</td><td><code>0x09Ee733Eb6BA19dEBC0E576AA18333A9A5A6D546</code></td><td><code>0x9ac02C514A016c7E6A92cf69a44a4d793b6b9cfE</code></td></tr>
+      <tr><td>CawProfileLedger_L2b</td><td>Arbitrum</td><td><code>0x29225D1177d0ECB3C0309417197D493b827A75b0</code></td><td><code>0xd14C3038141C849612825760D9832515323462B5</code></td></tr>
+      <tr><td>PathwayExpander_L2b</td><td>Arbitrum</td><td><code>0xc41aFf35C236f24404283ee909A2d0641E44fa42</code></td><td><code>0xdAD5bac641ABe10A11188A1AED7fAd282188A76a</code></td></tr>
+      <tr><td>SessionMessageParser_L2b</td><td>Arbitrum</td><td><code>0x4faccdee61E46cEd81d8de719d77CB73a4e98893</code></td><td><code>0x5B930570017459E8d57e13b5B5052dd7Ed7C7B5f</code></td></tr>
+    </table>
+  </section>
+
   <footer>
     <div><span class="en">Developed by the community · An independent deployment, not the official CAW service · Part of <a href="https://ql1-infinite42-guppy-histoire.github.io/guppys-guide-dashboard/">Guppy's Guide</a></span><span class="jp">コミュニティによる開発 ・ 公式の CAW サービスではない独立デプロイ ・ <a href="https://ql1-infinite42-guppy-histoire.github.io/guppys-guide-dashboard/">Guppy's Guide</a> の一部です</span></div>
-    <div><span class="en">Report v1 · Nov 11, 2026</span><span class="jp">レポート v1 ・ 2026年11月11日</span></div>
+    <div><span class="en">Report v1.1 · Nov 11, 2026</span><span class="jp">レポート v1.1 ・ 2026年11月11日</span></div>
   </footer>
 </div>
 <script>
