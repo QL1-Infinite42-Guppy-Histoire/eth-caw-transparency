@@ -1,6 +1,6 @@
 # CAW (Ethereum Edition) — Transparency Report
 
-The full transparency report for the community deployment of CAW (Gilgamesh design) on Ethereum + Base + Arbitrum: both deployments labeled, admin rights renounced and locked, residual powers disclosed, money flows, and a permanent correction log.
+The full transparency report for the community deployment of CAW (Gilgamesh design) on Ethereum + Base + Arbitrum: both deployments labeled, PathwayExpander renounced, network fees locked, residual powers disclosed, money flows, and a permanent correction log.
 
 - Site: https://ql1-infinite42-guppy-histoire.github.io/eth-caw-transparency/
 - EN / JP, light theme by default with a white/black toggle (`guppy-theme`).
